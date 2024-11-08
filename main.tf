@@ -1,19 +1,19 @@
 data "github_repository_file" "chart_definition" {
-  repository = local.repository
-  branch     = var.repository_version
-  file       = "${local.chart_path}/Chart.yaml"
+  repository = var.repository
+  branch     = var.target_revision
+  file       = "Chart.yaml"
 }
 
 data "github_repository_file" "values_common" {
-  repository = local.repository
-  branch     = var.repository_version
-  file       = "${local.chart_path}/values-common.yaml"
+  repository = var.repository
+  branch     = var.target_revision
+  file       = "values-common.yaml"
 }
 
 data "github_repository_file" "values_bootstrap" {
-  repository = local.repository
-  branch     = var.repository_version
-  file       = "${local.chart_path}/values-bootstrap.yaml"
+  repository = var.repository
+  branch     = var.target_revision
+  file       = "values-bootstrap.yaml"
 }
 
 data "utils_deep_merge_yaml" "values" {

@@ -1,8 +1,14 @@
 # NOTE: the variables in this file are organized in alphabetical order.
 
-variable "repository_version" {
+variable "repository" {
   type        = string
-  default     = "main" # TODO Change this to version of release and find a way to update it automatically with semantic-release
   nullable    = false
-  description = "The branch or tag of the repository where the `values.yaml` files are to be retrieved."
+  default     = "k8s-stack/helm-argo-cd"
+  description = "The GitHub repository where the `Chart.yaml` and `values.yaml` files are to be retrieved."
+}
+
+variable "target_revision" {
+  type        = string
+  nullable    = false
+  description = "The branch or tag of the repository where the `Chart.yaml`and `values.yaml` files are to be retrieved."
 }
